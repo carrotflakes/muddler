@@ -91,9 +91,40 @@
     (print (length morphemes))
     (print (first dic))
     (print (subseq morphemes 0 10))
+    (let ((a (remove-duplicates (loop
+                         for x in (dictionary-connect dictionary)
+                         collect (caar x))
+                       :test #'equal))
+          (b (remove-duplicates (loop
+                         for x in (dictionary-connect dictionary)
+                         collect (cadar x))
+                       :test #'equal)))
+      (loop
+        for x in a
+        when (< 1 (length x))
+        do (print x))
+      (loop
+        for x in b
+        when (< 1 (length x))
+        do (print x))
+      '(print (set-difference b a :test #'equal)))
+        
     (make-tagger :words dic
                  :lattice-builder (time (build-lattice-builder morphemes)))))
 
+(defun node-result (node)
+  (let ((result '()))
+    (loop
+      while node
+      do (push node result)
+      do (setf node (node-previous node)))
+    result))
+
 (defun lattice (tagger string)
   (with-slots (lattice-builder) tagger
-    (build-lattice lattice-builder string)))
+    (let* ((nodes-list (build-lattice lattice-builder string))
+           (end-node (first (aref nodes-list (1- (length nodes-list))))))
+      (loop
+        for node in (node-result end-node)
+        do (print (node-cost node))
+        do (print (node-morpheme node))))))

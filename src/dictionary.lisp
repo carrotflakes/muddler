@@ -55,6 +55,7 @@ grammar.cha 品詞定義ファイル
   connect
   ctypes
   grammar
+  chasenrc
   dics)
 
 (defun load-sexps (path)
@@ -74,6 +75,7 @@ grammar.cha 品詞定義ファイル
                    :connect (load-sexps (merge-pathnames "connect.cha" path))
                    :ctypes (load-sexps (merge-pathnames "ctypes.cha" path))
                    :grammar (load-sexps (merge-pathnames "grammar.cha" path))
+                   :chasenrc (load-sexps (merge-pathnames "chasenrc" path))
                    :dics (loop
                            for dic-path in (directory (merge-pathnames "*.dic" path))
                            collect (cons (pathname-name dic-path)
