@@ -11,8 +11,7 @@
   :version "0.1.0"
   :author "carrotflakes"
   :license "LLGPL"
-  :depends-on ("preil"
-               "cl-double-array")
+  :depends-on ("cl-double-array")
   :components ((:module "src"
                 :components
                 ((:file "muddler" :depends-on ("dictionary" "viterbi" "morpheme" "connect"))

@@ -3,8 +3,7 @@
         :muddler.dictionary
         :muddler.morpheme
         :muddler.connect
-        :muddler.viterbi
-        :cl-double-array)
+        :muddler.viterbi)
   (:export :load-tagger
            :parse))
 (in-package :muddler)
