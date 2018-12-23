@@ -20,7 +20,7 @@ $ tar zxvf ipadic-2.7.0.tar.gz
 Test it.
 
 ```
-$ ros run -l test.lisp
+$ ros run -e "(asdf:test-system :muddler)"
 ```
 
 ## Author
