@@ -5,7 +5,7 @@
            :morpheme-surface
            :morpheme-cost
            :morpheme-pos
-           :morpheme-cform
+           :morpheme-conj
            :morpheme-yomi
            :morpheme-hatsuon
            :+bos+
@@ -18,7 +18,7 @@
     surface
     cost
     pos
-    cform
+    conj
     yomi
     hatsuon))
 
@@ -27,7 +27,7 @@
   (make-morpheme :surface ""
                  :cost 0
                  :pos '("文頭")
-                 :cform nil
+                 :conj nil
                  :yomi ""
                  :hatsuon ""))
 
@@ -35,6 +35,6 @@
   (make-morpheme :surface ""
                  :cost 0
                  :pos '("文末")
-                 :cform nil
+                 :conj nil
                  :yomi ""
                  :hatsuon ""))

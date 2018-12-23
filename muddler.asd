@@ -15,9 +15,10 @@
                "cl-double-array")
   :components ((:module "src"
                 :components
-                ((:file "muddler" :depends-on ("dictionary" "lattice" "morpheme"))
-                 (:file "lattice" :depends-on ("morpheme"))
+                ((:file "muddler" :depends-on ("dictionary" "viterbi" "morpheme" "connect"))
+                 (:file "viterbi" :depends-on ("morpheme" "connect"))
                  (:file "morpheme")
+                 (:file "connect")
                  (:file "dictionary" :depends-on ("dic-parser"))
                  (:file "dic-parser"))))
   :description ""
